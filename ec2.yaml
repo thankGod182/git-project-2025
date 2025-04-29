@@ -1,0 +1,20 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: Basic EC2 Instance
+
+Parameters:
+  InstanceType:
+    Type: String
+    Default: t2.micro
+    Description: EC2 instance type
+
+Resources:
+  MyEC2Instance:
+    Type: AWS::EC2::Instance
+    Properties:
+      InstanceType: !Ref InstanceType
+      ImageId: ami-0e449927258d45bc4  # Amazon Linux 2 AMI
+      SubnetId: subnet-06d564b3ca462e2cc
+      Tags:
+        - Key: Name
+          Value: EC2-CF
+
